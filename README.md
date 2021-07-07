@@ -6,7 +6,7 @@ FriendlyScore Connect API Wrapper allows you build custom UX to connect bank acc
 
 - Xcode 10 or greater
 - iOS 12.3 or greater
--   - [FriendlyScore Client Id & Secret](https://friendlyscore.com/company/keys). **DO NOT put your `Client Secret`** in your mobile app.
+- [FriendlyScore Client Id & Secret](https://friendlyscore.com/company/keys). **DO NOT put your `Client Secret`** in your mobile app.
 
 ### Quickstart Demo App
 
@@ -23,8 +23,8 @@ You can select which environment you want to use the FriendlyScore SDK
 
 These environments are listed in the SDK as below
 
-    Environments.sandbox
-    Environments.production
+    Environment.sandbox
+    Environment.production
 
 Choose the correct [FriendlyScore Client Id & Secret ](https://friendlyscore.com/company/keys) based on the environment you are using.
 

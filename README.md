@@ -87,7 +87,7 @@ CocoaPods will install and embed all sources and dependencies into your app.
     
     `requestSuccess` - if the status code is between [200,300). Response type `UserToken`
 
-    `requestFailure` - if the status code is between [300,500]. Response type `MoyaResponse`
+    `requestFailure` - if there was request failure, (status code = 401, 403, 500 etc..). Response type `MoyaResponse`
 
     `otherError` - Any other error such as timeout or unexpected error. Response type `Swift.Error?`
 
@@ -128,7 +128,7 @@ CocoaPods will install and embed all sources and dependencies into your app.
     
     `requestSuccess` - if the status code is between [200,300). Response type `Array<UserBank>?`
 
-    `requestFailure` - if the status code is between [300,600). Response type `MoyaResponse`
+    `requestFailure` - if there was request failure, (status code = 401, 403, 500 etc..). Response type `MoyaResponse`
 
     `otherError` - Any other error such as timeout or unexpected error. Response type `Swift.Error?`
 
@@ -191,7 +191,7 @@ CocoaPods will install and embed all sources and dependencies into your app.
     
     `requestSuccess` - if the status code is between [200,300). Response type `ConsentScreenInformation`
 
-    `requestFailure` - if the status code is between [300,600). Response type `MoyaResponse`
+    `requestFailure` - if there was request failure, (status code = 401, 403, 500 etc..). Response type `MoyaResponse`
 
     `otherError` - Any other error such as timeout or unexpected error. Response type `Swift.Error?`
 
@@ -243,7 +243,7 @@ CocoaPods will install and embed all sources and dependencies into your app.
     
     `requestSuccess` - if the status code is between [200,300). Response type `BankFlowUrl`
 
-    `requestFailure` - if the status code is between [300,600). Response type `MoyaResponse`
+    `requestFailure` - if there was request failure, (status code = 401, 403, 500 etc..). Response type `MoyaResponse`
 
     `otherError` - Any other error such as timeout or unexpected error. Response type `Swift.Error?`
     

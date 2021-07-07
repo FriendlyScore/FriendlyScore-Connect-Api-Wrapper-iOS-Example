@@ -1,0 +1,6 @@
+${PODS_ROOT}/Target Support Files/Pods-FriendlyScoreConnectApiDemo-iOS/Pods-FriendlyScoreConnectApiDemo-iOS-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${PODS_ROOT}/FriendlyScoreConnectApi/FriendlyScoreConnectApi.framework
+${BUILT_PRODUCTS_DIR}/Moya/Moya.framework
+${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework
+${BUILT_PRODUCTS_DIR}/Result/Result.framework

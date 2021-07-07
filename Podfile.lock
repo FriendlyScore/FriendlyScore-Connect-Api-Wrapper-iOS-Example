@@ -1,0 +1,35 @@
+PODS:
+  - Alamofire (4.9.1)
+  - FriendlyScoreConnectApi (0.1.0):
+    - Alamofire (~> 4.1)
+    - Moya (~> 13.0.1)
+    - ObjectMapper
+  - Moya (13.0.1):
+    - Moya/Core (= 13.0.1)
+  - Moya/Core (13.0.1):
+    - Alamofire (~> 4.1)
+    - Result (~> 4.1)
+  - ObjectMapper (4.2.0)
+  - Result (4.1.0)
+
+DEPENDENCIES:
+  - FriendlyScoreConnectApi (~> 0.1.0)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - FriendlyScoreConnectApi
+    - Moya
+    - ObjectMapper
+    - Result
+
+SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  FriendlyScoreConnectApi: 8e3f492221e73a2f8dc35aed15b8ed17c40ed1f3
+  Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
+  ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
+  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
+
+PODFILE CHECKSUM: 0648d083cffe49c4e4b62af910b4a7f304ddec57
+
+COCOAPODS: 1.8.4

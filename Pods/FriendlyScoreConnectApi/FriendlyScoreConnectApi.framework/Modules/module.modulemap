@@ -1,0 +1,11 @@
+framework module FriendlyScoreConnectApi {
+  umbrella header "FriendlyScoreConnectApi.h"
+
+  export *
+  module * { export * }
+}
+
+module FriendlyScoreConnectApi.Swift {
+    header "FriendlyScoreConnectApi-Swift.h"
+    requires objc
+}

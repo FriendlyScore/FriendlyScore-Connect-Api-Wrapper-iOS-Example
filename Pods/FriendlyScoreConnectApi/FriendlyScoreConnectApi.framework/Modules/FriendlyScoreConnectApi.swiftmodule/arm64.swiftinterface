@@ -1,0 +1,212 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3.2 effective-4.1.50 (swiftlang-1200.0.45 clang-1200.0.32.28)
+// swift-module-flags: -target arm64-apple-ios12.1 -enable-objc-interop -enable-library-evolution -swift-version 4 -enforce-exclusivity=checked -O -module-name FriendlyScoreConnectApi
+import Alamofire
+import Foundation
+@_exported import FriendlyScoreConnectApi
+import Moya
+import ObjectMapper
+import Swift
+import UIKit
+public class AuthAPI {
+  public var api: Moya.MoyaProvider<Moya.MultiTarget>!
+  public var clientId: Swift.String!
+  public var env: FriendlyScoreConnectApi.Environment
+  public init(env: FriendlyScoreConnectApi.Environment, clientId: Swift.String, accessToken: Swift.String)
+  public func authorizeWithUserReference(userReference: Swift.String!, requestSuccess: @escaping (FriendlyScoreConnectApi.UserAuthToken) -> (), requestFailure: @escaping (Moya.Response) -> (), otherError: @escaping (Swift.Error?) -> ())
+  @objc deinit
+}
+public class UserAuthToken {
+  public func getToken() -> Swift.String?
+  required public init?(token: Swift.String)
+  @objc deinit
+}
+public class TokenResultV3 : ObjectMapper.Mappable {
+  required public init?(map: ObjectMapper.Map)
+  public func mapping(map: ObjectMapper.Map)
+  @objc deinit
+}
+public class CountryCodeModel : ObjectMapper.Mappable {
+  required public init?(map: ObjectMapper.Map)
+  public func mapping(map: ObjectMapper.Map)
+  @objc deinit
+}
+public class BankTypeModel : ObjectMapper.Mappable {
+  required public init?(map: ObjectMapper.Map)
+  public func mapping(map: ObjectMapper.Map)
+  @objc deinit
+}
+public class BankFilters : ObjectMapper.Mappable {
+  required public init?(map: ObjectMapper.Map)
+  public func mapping(map: ObjectMapper.Map)
+  @objc deinit
+}
+public enum Environment : Swift.String {
+  case production
+  case sandbox
+  public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public class UserAPI {
+  public var api: Moya.MoyaProvider<Moya.MultiTarget>!
+  public var clientId: Swift.String!
+  public var env: FriendlyScoreConnectApi.Environment
+  public init(env: FriendlyScoreConnectApi.Environment, appUserToken: Swift.String)
+  @objc deinit
+}
+public class BankAccount : ObjectMapper.Mappable {
+  required public init?(map: ObjectMapper.Map)
+  public func mapping(map: ObjectMapper.Map)
+  @objc deinit
+}
+public class ConsentSharingPurpose : ObjectMapper.Mappable {
+  public var type: Swift.String?
+  public var description: Swift.String?
+  required public init?(map: ObjectMapper.Map)
+  public func mapping(map: ObjectMapper.Map)
+  @objc deinit
+}
+public class UserBank : ObjectMapper.Mappable {
+  public var bank: FriendlyScoreConnectApi.Bank!
+  public var accounts: [FriendlyScoreConnectApi.BankAccount]
+  public var last_account_consent: FriendlyScoreConnectApi.BankConsent?
+  public var connected: Swift.Bool?
+  required public init?(map: ObjectMapper.Map)
+  public func mapping(map: ObjectMapper.Map)
+  @objc deinit
+}
+public protocol AuthDelegate {
+  func success(authToken: FriendlyScoreConnectApi.UserAuthToken)
+  func unauthenticated(response: Moya.Response?)
+  func unauthorized(response: Moya.Response?)
+  func clientError(response: Moya.Response?)
+  func serverError(response: Moya.Response?)
+  func unexpectedError(error: Swift.Error?)
+}
+public class BankConsent : ObjectMapper.Mappable {
+  public var consent_id: Swift.String!
+  public var creationDate: Foundation.Date?
+  public var status: FriendlyScoreConnectApi.ConsentStatus?
+  public var permissions: [Swift.String]
+  public var expirationDate: Foundation.Date?
+  public var transactionFromDate: Foundation.Date?
+  public var transactionToDate: Foundation.Date?
+  required public init?(map: ObjectMapper.Map)
+  public func mapping(map: ObjectMapper.Map)
+  @objc deinit
+}
+public class ConsentScreenInformation : ObjectMapper.Mappable {
+  public var metadata: FriendlyScoreConnectApi.ConsentMetaData?
+  public var consents: Swift.Array<FriendlyScoreConnectApi.ConsentText>?
+  required public init?(map: ObjectMapper.Map)
+  public func mapping(map: ObjectMapper.Map)
+  @objc deinit
+}
+public class BankConfiguration : ObjectMapper.Mappable {
+  public var transactions_consent_from: Swift.Int?
+  public var transactions_consent_to: Swift.Int?
+  required public init?(map: ObjectMapper.Map)
+  public func mapping(map: ObjectMapper.Map)
+  @objc deinit
+}
+public class BankFlowURL : ObjectMapper.Mappable {
+  public var url: Swift.String!
+  public var state: Swift.String!
+  required public init?(map: ObjectMapper.Map)
+  public func mapping(map: ObjectMapper.Map)
+  @objc deinit
+}
+public struct Url {
+  public var base: Foundation.URL
+  public var api: Foundation.URL
+}
+public class ConsentText : ObjectMapper.Mappable {
+  public var type: Swift.String?
+  public var title: Swift.String?
+  public var elements: Swift.Array<Swift.String>?
+  required public init?(map: ObjectMapper.Map)
+  public func mapping(map: ObjectMapper.Map)
+  @objc deinit
+}
+public class FriendlyScoreClient {
+  public var clientId: Swift.String
+  public var accessToken: Swift.String
+  public var environment: FriendlyScoreConnectApi.Environment
+  public init(environment: FriendlyScoreConnectApi.Environment = .production, clientId: Swift.String, accessToken: Swift.String)
+  public func createUserAuthToken(userReference: Swift.String!, requestSuccess: @escaping (FriendlyScoreConnectApi.UserAuthToken) -> (), requestFailure: @escaping (Moya.Response) -> (), otherError: @escaping (Swift.Error?) -> ())
+  public func postSuccessAccountConnectionCode(userToken: Swift.String, slug: Swift.String, code: Swift.String, state: Swift.String, requestSuccess: @escaping () -> (), requestFailure: @escaping (Moya.Response) -> (), otherError: @escaping (Swift.Error?) -> ())
+  public func fetchUserBankConsentStatus(userToken: Swift.String, bankSlug: Swift.String, requestSuccess: @escaping (FriendlyScoreConnectApi.BankConsent) -> (), requestFailure: @escaping (Moya.Response) -> (), otherError: @escaping (Swift.Error?) -> ())
+  public func fetchBankFilters(userToken: Swift.String, requestSuccess: @escaping (FriendlyScoreConnectApi.BankFilters) -> (), requestFailure: @escaping (Moya.Response) -> (), otherError: @escaping (Swift.Error?) -> ())
+  public func fetchBankList(userToken: Swift.String, requestSuccess: @escaping (Swift.Array<FriendlyScoreConnectApi.UserBank>) -> (), requestFailure: @escaping (Moya.Response) -> (), otherError: @escaping (Swift.Error?) -> ())
+  public func fetchConsentScreenInformation(userToken: Swift.String, slug: Swift.String, transactionFromTimeStampInSec: Swift.Int64? = nil, transactionToTimeStampInSec: Swift.Int64? = nil, requestSuccess: @escaping (FriendlyScoreConnectApi.ConsentScreenInformation) -> (), requestFailure: @escaping (Moya.Response) -> (), otherError: @escaping (Swift.Error?) -> ())
+  public func fetchBankFlowUrl(userToken: Swift.String, slug: Swift.String, transactionFromTimeStampInSec: Swift.Int64? = nil, transactionToTimeStampInSec: Swift.Int64? = nil, requestSuccess: @escaping (FriendlyScoreConnectApi.BankFlowURL) -> (), requestFailure: @escaping (Moya.Response) -> (), otherError: @escaping (Swift.Error?) -> ())
+  public func deleteBankConsent(userToken: Swift.String, slug: Swift.String, requestSuccess: @escaping () -> (), requestFailure: @escaping (Moya.Response) -> (), otherError: @escaping (Swift.Error?) -> ())
+  @objc deinit
+}
+public class ConsentMetaData : ObjectMapper.Mappable {
+  public var consent_id: Swift.String?
+  public var name: Swift.String?
+  public var slug: Swift.String?
+  public var logo_url: Swift.String?
+  public var company_name: Swift.String?
+  public var application_name: Swift.String?
+  public var application_sharing_purpose: Swift.Array<FriendlyScoreConnectApi.ConsentSharingPurpose>?
+  public var application_sharing_third_parties: Swift.String?
+  public var privacy_policy_url: Swift.String?
+  public var terms_and_condition_url: Swift.String?
+  public var friendlyscore_customer_center_url: Swift.String?
+  public var requested_permissions: Swift.Array<Swift.String>?
+  public var data_access_from: Swift.String?
+  public var data_access_to: Swift.String?
+  required public init?(map: ObjectMapper.Map)
+  public func mapping(map: ObjectMapper.Map)
+  @objc deinit
+}
+public typealias JSONData = [Swift.String : Any]
+public enum ConsentStatus : Swift.String {
+  case awaitingAuthorisation
+  case rejected
+  case authorised
+  case revoked
+  public typealias RawValue = Swift.String
+  public init?(rawValue: Swift.String)
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public class SDKError : ObjectMapper.Mappable {
+  required public init?(map: ObjectMapper.Map)
+  public func mapping(map: ObjectMapper.Map)
+  @objc deinit
+}
+public class Bank : ObjectMapper.Mappable {
+  public var name: Swift.String!
+  public var logo: Foundation.URL?
+  public var slug: Swift.String!
+  public var type: Swift.String?
+  public var is_working: Swift.Bool
+  public var is_active: Swift.Bool
+  public var country_code: Swift.String?
+  public var connected: Swift.Bool!
+  public var bank_configuration: FriendlyScoreConnectApi.BankConfiguration?
+  public var currentDateForConsentRange: Foundation.Date?
+  required public init?(map: ObjectMapper.Map)
+  public func mapping(map: ObjectMapper.Map)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class DateFormatTransform : ObjectMapper.TransformType {
+  public typealias Object = Foundation.Date
+  public typealias JSON = Swift.String
+  public func transformFromJSON(_ value: Any?) -> FriendlyScoreConnectApi.DateFormatTransform.Object?
+  public func transformToJSON(_ value: Foundation.Date?) -> FriendlyScoreConnectApi.DateFormatTransform.JSON?
+  @objc deinit
+}
+extension FriendlyScoreConnectApi.Environment : Swift.Equatable {}
+extension FriendlyScoreConnectApi.Environment : Swift.Hashable {}
+extension FriendlyScoreConnectApi.Environment : Swift.RawRepresentable {}
+extension FriendlyScoreConnectApi.ConsentStatus : Swift.Equatable {}
+extension FriendlyScoreConnectApi.ConsentStatus : Swift.Hashable {}
+extension FriendlyScoreConnectApi.ConsentStatus : Swift.RawRepresentable {}

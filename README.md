@@ -262,7 +262,7 @@ CocoaPods will install and embed all sources and dependencies into your app.
 
     `transactionToTimeStampInSec` - Time stamp in seconds. Use the same value as used in the Consent screen endpoint. Set to null to use default.
 
-    `redirectUri` - This must be the scheme you are using to bring the user back to your app. It must be the same as set in the FriendlyScore developer console and AndroidManifest.xml while declaring the activity.
+    `redirectUri` - This must be the scheme you are using to bring the user back to your app. It must be the same as set in the FriendlyScore developer console. For details on setting the app for redirection see section 7.
 
          
     &nbsp;

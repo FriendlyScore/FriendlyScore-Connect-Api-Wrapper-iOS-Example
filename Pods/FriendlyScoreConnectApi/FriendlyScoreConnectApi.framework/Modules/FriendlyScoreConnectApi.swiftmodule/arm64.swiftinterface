@@ -1,6 +1,6 @@
 // swift-interface-format-version: 1.0
 // swift-compiler-version: Apple Swift version 5.3.2 effective-4.1.50 (swiftlang-1200.0.45 clang-1200.0.32.28)
-// swift-module-flags: -target arm64-apple-ios12.1 -enable-objc-interop -enable-library-evolution -swift-version 4 -enforce-exclusivity=checked -O -module-name FriendlyScoreConnectApi
+// swift-module-flags: -target arm64-apple-ios12.3 -enable-objc-interop -enable-library-evolution -swift-version 4 -enforce-exclusivity=checked -O -module-name FriendlyScoreConnectApi
 import Alamofire
 import Foundation
 @_exported import FriendlyScoreConnectApi
@@ -54,12 +54,7 @@ public class UserAPI {
   public var api: Moya.MoyaProvider<Moya.MultiTarget>!
   public var clientId: Swift.String!
   public var env: FriendlyScoreConnectApi.Environment
-  public init(env: FriendlyScoreConnectApi.Environment, appUserToken: Swift.String)
-  @objc deinit
-}
-public class BankAccount : ObjectMapper.Mappable {
-  required public init?(map: ObjectMapper.Map)
-  public func mapping(map: ObjectMapper.Map)
+  public init(env: FriendlyScoreConnectApi.Environment, appUserToken: Swift.String, redirectUri: Swift.String?)
   @objc deinit
 }
 public class ConsentSharingPurpose : ObjectMapper.Mappable {
@@ -105,6 +100,13 @@ public class ConsentScreenInformation : ObjectMapper.Mappable {
   public func mapping(map: ObjectMapper.Map)
   @objc deinit
 }
+public class BankAccount : ObjectMapper.Mappable {
+  public var account_type: Swift.String!
+  public var account_number: Swift.String!
+  required public init?(map: ObjectMapper.Map)
+  public func mapping(map: ObjectMapper.Map)
+  @objc deinit
+}
 public class BankConfiguration : ObjectMapper.Mappable {
   public var transactions_consent_from: Swift.Int?
   public var transactions_consent_to: Swift.Int?
@@ -137,12 +139,9 @@ public class FriendlyScoreClient {
   public var environment: FriendlyScoreConnectApi.Environment
   public init(environment: FriendlyScoreConnectApi.Environment = .production, clientId: Swift.String, accessToken: Swift.String)
   public func createUserAuthToken(userReference: Swift.String!, requestSuccess: @escaping (FriendlyScoreConnectApi.UserAuthToken) -> (), requestFailure: @escaping (Moya.Response) -> (), otherError: @escaping (Swift.Error?) -> ())
-  public func postSuccessAccountConnectionCode(userToken: Swift.String, slug: Swift.String, code: Swift.String, state: Swift.String, requestSuccess: @escaping () -> (), requestFailure: @escaping (Moya.Response) -> (), otherError: @escaping (Swift.Error?) -> ())
-  public func fetchUserBankConsentStatus(userToken: Swift.String, bankSlug: Swift.String, requestSuccess: @escaping (FriendlyScoreConnectApi.BankConsent) -> (), requestFailure: @escaping (Moya.Response) -> (), otherError: @escaping (Swift.Error?) -> ())
-  public func fetchBankFilters(userToken: Swift.String, requestSuccess: @escaping (FriendlyScoreConnectApi.BankFilters) -> (), requestFailure: @escaping (Moya.Response) -> (), otherError: @escaping (Swift.Error?) -> ())
   public func fetchBankList(userToken: Swift.String, requestSuccess: @escaping (Swift.Array<FriendlyScoreConnectApi.UserBank>) -> (), requestFailure: @escaping (Moya.Response) -> (), otherError: @escaping (Swift.Error?) -> ())
   public func fetchConsentScreenInformation(userToken: Swift.String, slug: Swift.String, transactionFromTimeStampInSec: Swift.Int64? = nil, transactionToTimeStampInSec: Swift.Int64? = nil, requestSuccess: @escaping (FriendlyScoreConnectApi.ConsentScreenInformation) -> (), requestFailure: @escaping (Moya.Response) -> (), otherError: @escaping (Swift.Error?) -> ())
-  public func fetchBankFlowUrl(userToken: Swift.String, slug: Swift.String, transactionFromTimeStampInSec: Swift.Int64? = nil, transactionToTimeStampInSec: Swift.Int64? = nil, requestSuccess: @escaping (FriendlyScoreConnectApi.BankFlowURL) -> (), requestFailure: @escaping (Moya.Response) -> (), otherError: @escaping (Swift.Error?) -> ())
+  public func fetchBankFlowUrl(userToken: Swift.String, slug: Swift.String, transactionFromTimeStampInSec: Swift.Int64? = nil, transactionToTimeStampInSec: Swift.Int64? = nil, redirectUri: Swift.String, requestSuccess: @escaping (FriendlyScoreConnectApi.BankFlowURL) -> (), requestFailure: @escaping (Moya.Response) -> (), otherError: @escaping (Swift.Error?) -> ())
   public func deleteBankConsent(userToken: Swift.String, slug: Swift.String, requestSuccess: @escaping () -> (), requestFailure: @escaping (Moya.Response) -> (), otherError: @escaping (Swift.Error?) -> ())
   @objc deinit
 }

@@ -35,7 +35,7 @@ FriendlyScore Connect is a framework distributed using [CocoaPods](https://cocoa
 To integrate, add `FriendlyScoreConnectApi` to your `Podfile`
 
 ```bash
-pod 'FriendlyScoreConnectApi', '~> 0.1.0'
+pod 'FriendlyScoreConnectApi', '~> 0.1.2'
 ```
 
 then run following command in your project main directory:
@@ -261,12 +261,17 @@ CocoaPods will install and embed all sources and dependencies into your app.
     `transactionFromTimeStampInSec` - Time stamp in seconds. Use the same value as used in the Consent screen endpoint. Set to null to use default
 
     `transactionToTimeStampInSec` - Time stamp in seconds. Use the same value as used in the Consent screen endpoint. Set to null to use default.
+
+    `redirectUri` - This must be the scheme you are using to bring the user back to your app. It must be the same as set in the FriendlyScore developer console and AndroidManifest.xml while declaring the activity.
+
          
     &nbsp;
     &nbsp;
-    
 
-        fsClient?.fetchBankFlowUrl(userToken: userToken, slug: bankSlug, transactionFromTimeStampInSec: dateFrom, transactionToTimeStampInSec: dateTo, requestSuccess: { bankFlowUrl in
+
+        let redirectUriValue: String = "com.friendlyscore.FriendlyScoreConnectApiDemo-iOS"
+
+        fsClient?.fetchBankFlowUrl(userToken: userToken, slug: bankSlug, transactionFromTimeStampInSec: dateFrom, transactionToTimeStampInSec: dateTo, redirectUri: redirectUriValue, requestSuccess: { bankFlowUrl in
                     print( bankFlowUrl.url)
                 }, requestFailure: { failureResponse in
                     let statusCode: Int = failureResponse.statusCode

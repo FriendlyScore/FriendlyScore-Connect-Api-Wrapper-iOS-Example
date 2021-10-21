@@ -19,7 +19,9 @@ class ViewController: UIViewController {
     var fsClient: FriendlyScoreClient?=nil
     var  userToken: String?=nil
     var bankList: Array<UserBank>?
-    
+    //The redirectUri to redirect the usear back to your app. Set it to the same value as in the FriendlyScore developer console.
+    // Pass this value as parameter to get url for bank authorization flow
+    let redirectUriVal = "com.friendlyscore.FriendlyScoreConnectApiDemo-iOS"
     
     func  get_access_token_from_your_server() -> String {
 
@@ -77,9 +79,9 @@ class ViewController: UIViewController {
                     //Url for the logo of the selected bank
                     var bankLogoUrl: URL? = selectedBank.bank.logo
                     //Max number of months in the past to access data
-                    var maxMonthsInPast: Int = (selectedBank.bank.bank_configuration?.transactions_consent_from!)!
+                    var maxMonthsInPast: Int = (selectedBank.bank.bank_configuration?.transactions_consent_from!) ?? 36
                     //Max number of months in the future to access data
-                    var maxMonthsInFuture: Int = (selectedBank.bank.bank_configuration?.transactions_consent_to!)!
+                    var maxMonthsInFuture: Int = (selectedBank.bank.bank_configuration?.transactions_consent_to!) ?? 3
                     //Accounts for the user, if the user has connected the account
                     var  bankAccountList: Array<BankAccount> = bankList[0].accounts;
             
@@ -116,14 +118,17 @@ class ViewController: UIViewController {
     @objc private func fetchBankFlowUrlAction(sender: UIButton) {
         var dateFrom: Int64? = nil
         var dateTo: Int64? = nil
+        
         var selectedBank: UserBank = self.bankList![0]
-        fsClient?.fetchBankFlowUrl(userToken: self.userToken!, slug: selectedBank.bank.slug, transactionFromTimeStampInSec: dateFrom, transactionToTimeStampInSec: dateTo, requestSuccess: { bankFlowUrl in
+        fsClient?.fetchBankFlowUrl(userToken: self.userToken!, slug: selectedBank.bank.slug, transactionFromTimeStampInSec: dateFrom, transactionToTimeStampInSec: dateTo, redirectUri: redirectUriVal, requestSuccess: { bankFlowUrl in
                     print( bankFlowUrl.url)
+                    let urlString = bankFlowUrl.url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+                    UIApplication.shared.open(URL(string: urlString!)!, options: [:], completionHandler: { _ in
+                        //
+                    })
                 }, requestFailure: { failureResponse in
                     let statusCode: Int = failureResponse.statusCode
                     let responseData: Data = failureResponse.data
-
-
                 }, otherError: { error in
                     print(error.debugDescription)
                 })

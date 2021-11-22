@@ -12,7 +12,6 @@ import FriendlyScoreConnectApi
 class ViewController: UIViewController {
     
     
-    @IBOutlet weak var createUser: UIButton!
     @IBOutlet weak var fetchBankList: UIButton!
     @IBOutlet weak var fetchConsentScreen: UIButton!
     @IBOutlet weak var fetchBankFlowUrl: UIButton!

@@ -6,7 +6,6 @@ FriendlyScore Connect API Wrapper allows you build custom UX to connect bank acc
 
 - Xcode 10 or greater
 - iOS 12.3 or greater
-- [FriendlyScore Client Id & Secret](https://friendlyscore.com/company/keys). **DO NOT put your `Client Secret`** in your mobile app.
 
 ### Quickstart Demo App
 
@@ -26,7 +25,6 @@ These environments are listed in the SDK as below
     Environment.sandbox
     Environment.production
 
-Choose the correct [FriendlyScore Client Id & Secret ](https://friendlyscore.com/company/keys) based on the environment you are using.
 
 ### Installation
 
@@ -35,7 +33,7 @@ FriendlyScore Connect is a framework distributed using [CocoaPods](https://cocoa
 To integrate, add `FriendlyScoreConnectApi` to your `Podfile`
 
 ```bash
-pod 'FriendlyScoreConnectApi', '~> 0.1.2'
+pod 'FriendlyScoreConnectApi', '~> 0.2.0'
 ```
 
 then run following command in your project main directory:
@@ -46,32 +44,20 @@ CocoaPods will install and embed all sources and dependencies into your app.
 
 #### **Steps**
 
-1. Get access token
+1. Get User token
 
-    
-    Your server must use `client_id` and `client_secret` to authorize itself with the FriendlyScore Servers.
+    A user token can be created for the user using the `customer_id`. A `customer_id` is available after creating the user [Create Customer](https://docs.friendlyscore.com/api-reference/customers/create-customer)
 
-    The successful completion of authorization request will provide you with access_token.
+    You must then use the `customer_id` to create `user_token` [Create User Token](https://docs.friendlyscore.com/api-reference/customers/create-customer-token)
 
-    This access_token is required to generate a userToken to make user related requests.
-
-    Your app must ask your server for the `access_token`
-
-    `DO NOT` put your `client_secret` in your mobile app.
-    
 &nbsp;
 &nbsp;
 
 2. Create the `FriendlyScoreClient`
-
-    Choose the `client_id` and the environment you want to integrate. You can access the `client_id` from the FriendlyScore panel
-
         
         var  environment: Environment = Environment.sandbox
-        var client_id: String = "YOUR_CLIENT_ID"
-        var access_token: String = "access_token_from_step_1"
 
-        var fsClient: FriendlyScoreClient  = FriendlyScoreClient(environment: environment, clientId: client_id, accessToken: access_token)
+        var fsClient: FriendlyScoreClient  = FriendlyScoreClient(environment: environment)
      
 
     The `fsClient` will be required to make other requests 
@@ -79,48 +65,8 @@ CocoaPods will install and embed all sources and dependencies into your app.
 &nbsp;
 &nbsp;
 
-3. Create User Token
 
-    You must create `userToken` in order to make any request for the user.
-
-    In order to receive response you must implement closures `requestSuccess`, `requestFailure`, `otherError`.
-    
-    `requestSuccess` - if the status code is between [200,300). Response type `UserToken`
-
-    `requestFailure` - if there was request failure, (status code = 401, 403, 500 etc..). Response type `MoyaResponse`
-
-    `otherError` - Any other error such as timeout or unexpected error. Response type `Swift.Error?`
-
-    &nbsp;
-    &nbsp;
-    #### **Required parameters:** 
-    `fsClient` - FriendlyScoreClient
-
-    `user_reference` - Unique user reference that identifies user in your systems.
-
-    
-        
-        var userReference: String = "user_reference"
-        
-        fsClient?.createUserAuthToken(userReference: userReference, 
-            requestSuccess: { userToken in
-                self.userToken = userToken.getToken()
-            }, 
-            requestFailure: { moyaResponse in
-                let statusCode = moyaResponse.statusCode
-                let data: Data = moyaResponse.data                 
-            }, 
-            otherError: { error in
-                print(error.debugDescription)
-            } 
-        )
-    Use the `fsClient` to make the requests
-
-    
-&nbsp;
-&nbsp;
-
-4. Get List of Banks
+3. Get List of Banks
 
     You can obtain the list of banks for the user
 
@@ -136,9 +82,7 @@ CocoaPods will install and embed all sources and dependencies into your app.
     &nbsp;
     #### **Required parameters:** 
 
-    `fsClient` - FriendlyScoreClient
-
-    `userToken` - User Token obtained from authorization endpoint
+    `userToken` - User Token obtained from your server
 
         var userToken: String = "User Token obtained from authorization endpoint"
 
@@ -201,10 +145,8 @@ CocoaPods will install and embed all sources and dependencies into your app.
     &nbsp;
     #### **Required parameters:** 
 
-
-    `fsClient` - FriendlyScoreClient
         
-    `userToken` - User Token obtained from authorization endpoint
+    `userToken` - User Token obtained from your server
         
     `bankSlug` - Slug for the bank user has selected from the list of banks
         
@@ -250,11 +192,8 @@ CocoaPods will install and embed all sources and dependencies into your app.
     &nbsp;
     &nbsp;
     #### **Required parameters:** 
-
-
-    `fsClient` - FriendlyScoreClient
         
-    `userToken` - User Token obtained from authorization endpoint
+    `userToken` - User Token obtained from your server
         
     `bankSlug` - Slug for the bank user has selected from the list of banks
                 
@@ -351,10 +290,8 @@ CocoaPods will install and embed all sources and dependencies into your app.
     &nbsp;
 
     #### **Required parameters:** 
-    `fsClient` - FriendlyScoreClient
 
-    `userToken` - User Token obtained from authorization endpoint
-        
+    `userToken` - User Token obtained from your server        
     `bankSlug` - Slug for the bank
 
 

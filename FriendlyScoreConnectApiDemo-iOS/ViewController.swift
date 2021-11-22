@@ -23,47 +23,36 @@ class ViewController: UIViewController {
     // Pass this value as parameter to get url for bank authorization flow
     let redirectUriVal = "com.friendlyscore.FriendlyScoreConnectApiDemo-iOS"
     
-    func  get_access_token_from_your_server() -> String {
+    func  get_user_token_from_your_server() -> String {
 
           /**
            *
-           * Your server must use client_id and client_secret to authorize itself with the FriendlyScore Servers.
-           *
-           * The successful completion of authorization request will provide you with access_token.
-           * This access_token is required to generate a user_token to make user related requests.
-           * Your app must ask the server for the `access_token`
+           *  Your server must use client_id and client_secret to authorize itself with the FriendlyScore Servers.
+           
+           *  The successful completion of authorization request will provide you with access_token.
+           
+           *  This access_token is required to generate a user_token to make user related requests.
+           
+           *  The access_token must be used to generate user_token  which should be provided to the app
+           
+           *  Your app must ask the server for the `user_token`
            */
 
-        let access_token: String = "get_access_token_from_your_server"
+        let user_token: String = "get_user_token_from_your_server"
 
-        return access_token
+        return user_token
       }
     override func viewDidLoad() {
         super.viewDidLoad()
-        createUser.addTarget(self, action: #selector(createUserTokenAction(sender:)), for: .touchUpInside)
         fetchBankList.addTarget(self, action: #selector(fetchBankListAction(sender:)), for: .touchUpInside)
         fetchConsentScreen.addTarget(self, action: #selector(fetchConsentScreenInformationAction(sender:)), for: .touchUpInside)
         fetchBankFlowUrl.addTarget(self, action: #selector(fetchBankFlowUrlAction(sender:)), for: .touchUpInside)
 
-        fsClient = FriendlyScoreClient(environment: Environment.production, clientId: "YOUR_CLIENT_ID", accessToken: get_access_token_from_your_server())
+        fsClient = FriendlyScoreClient(environment: Environment.production)
+        self.userToken = self.get_user_token_from_your_server()
         // Do any additional setup after loading the view.
     }
 
-    @objc private func createUserTokenAction(sender: UIButton) {
-
-        fsClient?.createUserAuthToken(userReference: "user_reference", requestSuccess: { userToken in
-            self.userToken = userToken.getToken()
-                    print(userToken.getToken())
-                }, requestFailure: { failureResponse in
-                    let statusCode: Int = failureResponse.statusCode
-                    let responseData: Data = failureResponse.data
-                    print(statusCode)
-                    print(responseData)
-                }, otherError: { error in
-                    print(error.debugDescription)
-                } )
-    }
-    
     @objc private func fetchBankListAction(sender: UIButton) {
 
         fsClient?.fetchBankList(userToken: self.userToken!, requestSuccess: { bankList in

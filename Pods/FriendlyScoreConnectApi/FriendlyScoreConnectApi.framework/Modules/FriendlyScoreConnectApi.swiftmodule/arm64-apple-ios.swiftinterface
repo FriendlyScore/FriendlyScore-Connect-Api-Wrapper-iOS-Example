@@ -134,11 +134,8 @@ public class ConsentText : ObjectMapper.Mappable {
   @objc deinit
 }
 public class FriendlyScoreClient {
-  public var clientId: Swift.String
-  public var accessToken: Swift.String
   public var environment: FriendlyScoreConnectApi.Environment
-  public init(environment: FriendlyScoreConnectApi.Environment = .production, clientId: Swift.String, accessToken: Swift.String)
-  public func createUserAuthToken(userReference: Swift.String!, requestSuccess: @escaping (FriendlyScoreConnectApi.UserAuthToken) -> (), requestFailure: @escaping (Moya.Response) -> (), otherError: @escaping (Swift.Error?) -> ())
+  public init(environment: FriendlyScoreConnectApi.Environment = .production)
   public func fetchBankList(userToken: Swift.String, requestSuccess: @escaping (Swift.Array<FriendlyScoreConnectApi.UserBank>) -> (), requestFailure: @escaping (Moya.Response) -> (), otherError: @escaping (Swift.Error?) -> ())
   public func fetchConsentScreenInformation(userToken: Swift.String, slug: Swift.String, transactionFromTimeStampInSec: Swift.Int64? = nil, transactionToTimeStampInSec: Swift.Int64? = nil, requestSuccess: @escaping (FriendlyScoreConnectApi.ConsentScreenInformation) -> (), requestFailure: @escaping (Moya.Response) -> (), otherError: @escaping (Swift.Error?) -> ())
   public func fetchBankFlowUrl(userToken: Swift.String, slug: Swift.String, transactionFromTimeStampInSec: Swift.Int64? = nil, transactionToTimeStampInSec: Swift.Int64? = nil, redirectUri: Swift.String, requestSuccess: @escaping (FriendlyScoreConnectApi.BankFlowURL) -> (), requestFailure: @escaping (Moya.Response) -> (), otherError: @escaping (Swift.Error?) -> ())

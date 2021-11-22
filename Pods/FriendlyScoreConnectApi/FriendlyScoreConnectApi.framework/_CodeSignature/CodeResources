@@ -6,7 +6,7 @@
 	<dict>
 		<key>FriendlyScoreConnectApi.podspec</key>
 		<data>
-		GGkUIqYIyG7RLsjBOywoFoPLwh8=
+		ItETCGY/AJiP+bez4NoWnTE30VQ=
 		</data>
 		<key>Headers/FriendlyScoreConnectApi-Swift.h</key>
 		<data>
@@ -22,35 +22,35 @@
 		</data>
 		<key>Modules/FriendlyScoreConnectApi.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<data>
-		q2d54CaZIsnodAE83B4/I787uIA=
+		3BzRr5Vho+NkvnAyG1IMvKpgm/U=
 		</data>
 		<key>Modules/FriendlyScoreConnectApi.swiftmodule/Project/arm64.swiftsourceinfo</key>
 		<data>
-		q2d54CaZIsnodAE83B4/I787uIA=
+		3BzRr5Vho+NkvnAyG1IMvKpgm/U=
 		</data>
 		<key>Modules/FriendlyScoreConnectApi.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		9I2+DSWGdNLdIfzkBeFNDE8TPTs=
+		9mSnScLE3+bOgT77vg51ZOUGKNk=
 		</data>
 		<key>Modules/FriendlyScoreConnectApi.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		bP2tvyv8DltnKKuO2XYRYwFQm90=
+		lWHRuspLWpQVdVojLuFTKC0vGPQ=
 		</data>
 		<key>Modules/FriendlyScoreConnectApi.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		lQb8PyP7RrHFKkewv7DV9745Ylk=
+		tebQxineq0qWviSRdxPsNWFhLvw=
 		</data>
 		<key>Modules/FriendlyScoreConnectApi.swiftmodule/arm64.swiftdoc</key>
 		<data>
-		9I2+DSWGdNLdIfzkBeFNDE8TPTs=
+		9mSnScLE3+bOgT77vg51ZOUGKNk=
 		</data>
 		<key>Modules/FriendlyScoreConnectApi.swiftmodule/arm64.swiftinterface</key>
 		<data>
-		bP2tvyv8DltnKKuO2XYRYwFQm90=
+		lWHRuspLWpQVdVojLuFTKC0vGPQ=
 		</data>
 		<key>Modules/FriendlyScoreConnectApi.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		lQb8PyP7RrHFKkewv7DV9745Ylk=
+		tebQxineq0qWviSRdxPsNWFhLvw=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -67,7 +67,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			9NtoR9fzzwkyK8MckUo1fT3w/1+Gp6zCA3KUVsvynDY=
+			kTiSGniDhwap+wV2Mkch3lTcAXFWPRT+AtRrdeI7EKo=
 			</data>
 		</dict>
 		<key>Headers/FriendlyScoreConnectApi-Swift.h</key>
@@ -88,56 +88,56 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			pm1wZ6D+qoPUJOgs611v1zsMxrJRDG7bC5MaQGuWz2M=
+			zyH159L7RguHfUvlfS3kfWqAPIw1vFpEnZQOdMzxFE4=
 			</data>
 		</dict>
 		<key>Modules/FriendlyScoreConnectApi.swiftmodule/Project/arm64.swiftsourceinfo</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			pm1wZ6D+qoPUJOgs611v1zsMxrJRDG7bC5MaQGuWz2M=
+			zyH159L7RguHfUvlfS3kfWqAPIw1vFpEnZQOdMzxFE4=
 			</data>
 		</dict>
 		<key>Modules/FriendlyScoreConnectApi.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ZQ2/SjVYltar7fgPU65fGoJddj+NQeXYPh+UQWmE2No=
+			3M3EJ6lhN4bJCkFVbaiMpAvve2+1qlU3Bw/eV9FM+aw=
 			</data>
 		</dict>
 		<key>Modules/FriendlyScoreConnectApi.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			K717gRW95gFbSyV/iFPdCOEbOA1ppzIPM+/VxdXNyBk=
+			wyVnw93tD8no45a54Tgs7zFo76pCcE5sZpNTwge07tQ=
 			</data>
 		</dict>
 		<key>Modules/FriendlyScoreConnectApi.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			nKhfh9PWfwQrZsAHUglvMibq+kKIgiNa0IPcoIdjJ7M=
+			jRUPmcVdUN6Pdz2XVyZoShyenF+4HSSg/vXSgKJjuSg=
 			</data>
 		</dict>
 		<key>Modules/FriendlyScoreConnectApi.swiftmodule/arm64.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ZQ2/SjVYltar7fgPU65fGoJddj+NQeXYPh+UQWmE2No=
+			3M3EJ6lhN4bJCkFVbaiMpAvve2+1qlU3Bw/eV9FM+aw=
 			</data>
 		</dict>
 		<key>Modules/FriendlyScoreConnectApi.swiftmodule/arm64.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			K717gRW95gFbSyV/iFPdCOEbOA1ppzIPM+/VxdXNyBk=
+			wyVnw93tD8no45a54Tgs7zFo76pCcE5sZpNTwge07tQ=
 			</data>
 		</dict>
 		<key>Modules/FriendlyScoreConnectApi.swiftmodule/arm64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			nKhfh9PWfwQrZsAHUglvMibq+kKIgiNa0IPcoIdjJ7M=
+			jRUPmcVdUN6Pdz2XVyZoShyenF+4HSSg/vXSgKJjuSg=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

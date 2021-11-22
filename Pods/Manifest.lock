@@ -1,6 +1,6 @@
 PODS:
   - Alamofire (4.9.1)
-  - FriendlyScoreConnectApi (0.1.2):
+  - FriendlyScoreConnectApi (0.2.0):
     - Alamofire (~> 4.1)
     - Moya (~> 13.0.1)
     - ObjectMapper
@@ -14,7 +14,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.1)
-  - FriendlyScoreConnectApi
+  - FriendlyScoreConnectApi (~> 0.2.0)
 
 SPEC REPOS:
   trunk:
@@ -26,11 +26,11 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
-  FriendlyScoreConnectApi: 91f802fa3db52bcb16e7b01a4ec14a216f3cebb9
+  FriendlyScoreConnectApi: 4730c58c2c1172d42bfd144431f01fef7daf1389
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
   ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
 
-PODFILE CHECKSUM: e893159d5ff27cdb754563158f61587e8af708fc
+PODFILE CHECKSUM: 8f77c91582f8a6d92f3ea4ec9223b5b8c499d4a6
 
 COCOAPODS: 1.8.4

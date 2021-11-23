@@ -129,7 +129,7 @@ CocoaPods will install and embed all sources and dependencies into your app.
 &nbsp;
 &nbsp;
 
-5. Get Bank Consent Screen Information
+4. Get Bank Consent Screen Information
 
     Once the user has selected a bank from the list. You must show the user the necessary information as required by the law.
 
@@ -177,7 +177,7 @@ CocoaPods will install and embed all sources and dependencies into your app.
 &nbsp;
 &nbsp;
 
-6. Get Bank Flow Url
+5. Get Bank Flow Url
     
     Make this request from the consent screen after the user has seen all the information that will is being requested.
     
@@ -232,7 +232,7 @@ CocoaPods will install and embed all sources and dependencies into your app.
 &nbsp;
 
 
-7. Redirect back to the app
+6. Redirect back to the app
 
     The user is redirected back to your app after a user successfully authorizes, cancels the authorization process or any other error during the authorization.
 
@@ -275,7 +275,7 @@ CocoaPods will install and embed all sources and dependencies into your app.
 &nbsp;
 &nbsp;
 
-8. Delete Account Consent
+7. Delete Account Consent
 
     Make this request to allow the user to delete consent to access account information.
 

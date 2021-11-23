@@ -210,7 +210,7 @@ CocoaPods will install and embed all sources and dependencies into your app.
     &nbsp;
 
 
-        let redirectUriValue: String = "com.friendlyscore.FriendlyScoreConnectApiDemo-iOS"
+        let redirectUriValue: String = "YOUR_APP_REDIRECT_SCHEME"
         var userToken: String = "User Token obtained from your server"
         fsClient?.fetchBankFlowUrl(userToken: userToken, slug: bankSlug, transactionFromTimeStampInSec: dateFrom, transactionToTimeStampInSec: dateTo, redirectUri: redirectUriValue, requestSuccess: { bankFlowUrl in
                     print( bankFlowUrl.url)

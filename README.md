@@ -55,6 +55,8 @@ CocoaPods will install and embed all sources and dependencies into your app.
 
 2. Create the `FriendlyScoreClient`
         
+        Choose the  the environment you want to integrate.
+
         var  environment: Environment = Environment.sandbox
 
         var fsClient: FriendlyScoreClient  = FriendlyScoreClient(environment: environment)

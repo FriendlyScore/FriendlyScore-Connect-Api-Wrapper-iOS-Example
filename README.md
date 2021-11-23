@@ -86,7 +86,7 @@ CocoaPods will install and embed all sources and dependencies into your app.
 
     `userToken` - User Token obtained from your server
 
-        var userToken: String = "User Token obtained from authorization endpoint"
+        var userToken: String = "User Token obtained from your server"
 
         fsClient?.fetchBankList(userToken: userToken, 
                 requestSuccess: { bankList in

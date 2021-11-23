@@ -159,8 +159,8 @@ CocoaPods will install and embed all sources and dependencies into your app.
     &nbsp;
     &nbsp;
     
-        
-        fsClient?.fetchConsentScreenInformation(userToken: self.userToken!, slug: selectedBank.bank.slug, transactionFromTimeStampInSec: dateFrom, transactionToTimeStampInSec: dateTo, requestSuccess: { consentScreenInfo in
+        var userToken: String = "User Token obtained from your server"
+        fsClient?.fetchConsentScreenInformation(userToken: userToken, slug: selectedBank.bank.slug, transactionFromTimeStampInSec: dateFrom, transactionToTimeStampInSec: dateTo, requestSuccess: { consentScreenInfo in
             print(consentScreenInfo.metadata?.terms_and_condition_url)
             print(consentScreenInfo.consents)
                 }, requestFailure: { failureResponse in
@@ -211,7 +211,7 @@ CocoaPods will install and embed all sources and dependencies into your app.
 
 
         let redirectUriValue: String = "com.friendlyscore.FriendlyScoreConnectApiDemo-iOS"
-
+        var userToken: String = "User Token obtained from your server"
         fsClient?.fetchBankFlowUrl(userToken: userToken, slug: bankSlug, transactionFromTimeStampInSec: dateFrom, transactionToTimeStampInSec: dateTo, redirectUri: redirectUriValue, requestSuccess: { bankFlowUrl in
                     print( bankFlowUrl.url)
                 }, requestFailure: { failureResponse in
@@ -296,7 +296,7 @@ CocoaPods will install and embed all sources and dependencies into your app.
     `userToken` - User Token obtained from your server        
     `bankSlug` - Slug for the bank
 
-
+        var userToken: String = "User Token obtained from your server"
         fsClient?.deleteBankConsent(userToken: userToken, slug: bankSlug,
                 requestSuccess: { _ in
                     

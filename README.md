@@ -282,7 +282,7 @@ CocoaPods will install and embed all sources and dependencies into your app.
 
     In order to receive response you must implement closures `requestSuccess`, `requestFailure`, `otherError`.
     
-    `requestSuccess` - if the status code is between [200,300). Response type `Void`
+    `requestSuccess` - if the status code is 204. Response type `Void`
 
     `requestFailure` - if there was request failure, (status code = 401, 403, 500 etc..). Response type `MoyaResponse`
 
@@ -298,8 +298,8 @@ CocoaPods will install and embed all sources and dependencies into your app.
 
         var userToken: String = "User Token obtained from your server"
         fsClient?.deleteBankConsent(userToken: userToken, slug: bankSlug,
-                requestSuccess: { _ in
-                    
+                requestSuccess: { moyaresponse in
+                    let statusCode = moyaResponse.statusCode
                 }, 
                 requestFailure: { moyaresponse in
                     let statusCode = moyaResponse.statusCode
